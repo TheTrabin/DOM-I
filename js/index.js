@@ -86,6 +86,7 @@ document.getElementsByTagName("h4")[4].innerText = siteContent["main-content"]["
 // contactHead.textContent = siteContent["contact"]["contact-h4"];
 // contact.h4.innerText = siteContent["contact"]["contact-h4"];
 // contact.querySelector("h4").innerText = siteContent["contact"]["contact-h4"];
+
 document.getElementsByTagName("h4")[5].innerText = siteContent["contact"]["contact-h4"];
 document.getElementsByTagName("p")[5].innerText = siteContent["contact"]["address"];
 document.getElementsByTagName("p")[6].innerText = siteContent["contact"]["phone"];
@@ -94,3 +95,55 @@ document.getElementsByTagName("p")[7].innerText = siteContent["contact"]["email"
 //This is feeling dirty, but it's functional.
 
 document.getElementsByTagName("p")[8].innerText = siteContent["footer"]["copyright"];
+
+
+
+//Awesome. Color was changed to green for all the Anchor tags.
+
+const newNavOne = document.createElement("home");
+newNavOne.textContent = "Home";
+const parentElement = document.querySelector('nav');
+parentElement.prepend(newNavOne);
+
+const newNavTwo = document.createElement('end');
+newNavTwo.textContent = "End";
+parentElement.appendChild(newNavTwo);
+
+//Figured out how to do the basic adding text to the front and the Back. Looked up
+//how to add a link. So, Below is some practice on that. Seems to work!
+
+var a = document.createElement('a');
+var link = document.createTextNode("End");
+a.appendChild(link);
+a.title = "End";
+a.href = "#";
+parentElement.appendChild(a);
+
+var a = document.createElement('a');
+var link = document.createTextNode("Home");
+a.prepend(link);
+a.title = "Home";
+a.href = "#";
+parentElement.prepend(a);
+
+const linkColor = document.querySelectorAll('a');
+linkColor.forEach( element => {
+  element.style.color = 'green';
+  element.style.background = 'silver'; //This is kind of neat.
+})
+
+// document.getElementsByTagName('end').outerHTML = "<a href='#'>End</a>"; <~~ This was an attempt to create the OuterHTML Link.
+
+
+//Managed to get both elements, while also identifying the querySelector to the same thing, making it a lot easier.
+
+const bodyBack = document.querySelector(".cta").style.background = "blue";
+
+const topCont = document.querySelector(".top-content").style.background = "green";
+const topLeft = document.querySelector(".text-content").style.background = "red";
+// bodyBack.forEach( element => {
+//   element.style.background = 'blue';
+// }); <~~~ We're just going to ignore that right now.
+
+// Fantastic! Now we've figured out how to add a background color to a specific Item that isn't Text or working on a link.
+
